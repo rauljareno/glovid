@@ -1,0 +1,17 @@
+<resources>
+  <string name="app_name">Glovid</string>
+  <!-- Strings related to login -->
+  <string name="prompt_email">Email</string>
+  <string name="prompt_password">Contraseña</string>
+  <string name="action_sign_in">Login</string>
+  <string name="action_sign_in_short">Login</string>
+  <string name="welcome">"Bienvenido !"</string>
+  <string name="invalid_name">El nombre no puede estar vacío</string>
+  <string name="invalid_email">El email no es correcto</string>
+  <string name="invalid_password">La contraseña debe ser mayor de 6 caracteres</string>
+  <string name="login_failed">"El login ha fallado"</string>
+  <!-- Strings related to sign up -->
+  <string name="prompt_name">Nombre</string>
+  <string name="action_sign_up">Registro</string>
+  <string name="signup_failed">"El registro ha fallado"</string>
+</resources>
