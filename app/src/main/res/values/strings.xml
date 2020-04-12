@@ -3,15 +3,50 @@
   <!-- Strings related to login -->
   <string name="prompt_email">Email</string>
   <string name="prompt_password">Contraseña</string>
-  <string name="action_sign_in">Login</string>
-  <string name="action_sign_in_short">Login</string>
+  <string name="action_sign_in">Iniciar sesion</string>
+  <string name="action_sign_in_short">Iniciar sesion</string>
   <string name="welcome">"Bienvenido !"</string>
   <string name="invalid_name">El nombre no puede estar vacío</string>
   <string name="invalid_email">El email no es correcto</string>
-  <string name="invalid_password">La contraseña debe ser mayor de 6 caracteres</string>
-  <string name="login_failed">"El login ha fallado"</string>
+  <string name="invalid_password">La contraseña no puede estar vacía</string>
+  <string name="login_failed">"El inicio de sesión ha fallado"</string>
   <!-- Strings related to sign up -->
   <string name="prompt_name">Nombre</string>
   <string name="action_sign_up">Registro</string>
   <string name="signup_failed">"El registro ha fallado"</string>
+
+  <!-- Strings related to main -->
+  <string name="main_google_login">Entrar con Google</string>
+  <string name="main_login">Iniciar sesión</string>
+  <string name="main_not_account">¿No tienes cuenta?</string>
+  <string name="main_register">Regístrate</string>
+  <string name="main_terms_conditions">Continuar implica que has leido y aceptado los Términos y condiciones y Política de Privacidad</string>
+
+
+  <string name="action_contact_to">Contactar con %s</string>
+
+  <!-- String related to home -->
+  <string name="home_ask">Pedir</string>
+  <string name="home_errand">Hacer recado</string>
+  <string name="home_donate">Donar</string>
+  <string name="facebook_app_id">550611872239596</string>
+  <string name="fb_login_protocol_scheme">fb550611872239596</string>
+
+  <!-- Strings related to new donation -->
+  <string name="prompt_what_donation">¿Qué quieres donar?</string>
+  <string name="prompt_donation_requirement">¿Algún requisito para poder solicitarlo?</string>
+
+  <string name="prompt_what_ask">¿Qué necesitas?</string>
+  <string name="prompt_time_needed">Indica un día y franja horaria</string>
+
+  <string name="unable_to_get_current_location">No ha sido posible obtener tu posición actual</string>
+
+  <string name="new_ask_name">Nuevo pedido</string>
+  <string name="new_donation_name">Nuevo donativo</string>
+  <string name="profile_name">Perfil</string>
+  <string name="update_profile">Actualizar perfil</string>
+  <string name="accept_errand">Aceptar Recado</string>
+  <string name="request_donation">Solicitar donativo</string>
+  <string name="errand">Recado</string>
+  <string name="donation">Donativo</string>
 </resources>

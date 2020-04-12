@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.order.OrderDetailsActivity">
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_above="@+id/update_profile_button">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+  <RelativeLayout
+      android:id="@+id/top_container"
+      android:layout_width="match_parent"
+      android:layout_height="300dp">
+
+    <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="150dp"
+      android:background="@color/colorAccent">
+
+      <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:scaleType="fitXY"
+          android:src="@drawable/food"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/user_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter">
+
+      <ImageView android:id="@+id/circle_crop"
+          android:layout_width="140dp"
+          android:layout_height="140dp"
+          android:layout_centerInParent="true"
+          android:scaleType="fitCenter"
+          android:padding="3dp"
+          android:src="@drawable/circle" />
+
+      <ImageView android:id="@+id/pic"
+          android:layout_width="80dp"
+          android:layout_height="80dp"
+          android:layout_centerInParent="true"
+          android:scaleType="fitCenter"
+          android:src="@drawable/profile" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/user_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/user_icon"
+        android:orientation="horizontal">
+
+      <ImageView
+          android:layout_width="30dp"
+          android:layout_height="wrap_content"
+          android:padding="5dp"
+          android:src="@drawable/star_filled"/>
+
+      <ImageView
+          android:layout_width="30dp"
+          android:layout_height="wrap_content"
+          android:padding="5dp"
+          android:src="@drawable/star_filled"/>
+
+      <ImageView
+          android:layout_width="30dp"
+          android:layout_height="wrap_content"
+          android:padding="5dp"
+          android:src="@drawable/star_filled"/>
+
+      <ImageView
+          android:layout_width="30dp"
+          android:layout_height="wrap_content"
+          android:padding="5dp"
+          android:src="@drawable/star_filled"/>
+
+      <ImageView
+          android:layout_width="30dp"
+          android:layout_height="wrap_content"
+          android:padding="5dp"
+          android:src="@drawable/star_filled"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@+id/user_rating"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="rogerpuig@gmail.com"/>
+
+  </RelativeLayout>
+
+      <LinearLayout
+          android:id="@+id/edit_texts_container"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:layout_below="@+id/top_container">
+
+      <EditText
+          android:id="@+id/username"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="20dp"
+          android:layout_marginEnd="20dp"
+          android:hint="@string/prompt_name"
+          android:text="Roger"
+          android:inputType="text"
+          android:selectAllOnFocus="true" />
+
+      <EditText
+          android:id="@+id/password"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="20dp"
+          android:text="sdadasda"
+          android:hint="@string/prompt_password"
+          android:imeActionLabel="@string/action_sign_in_short"
+          android:imeOptions="actionDone"
+          android:inputType="textPassword"
+          android:selectAllOnFocus="true" />
+
+        <EditText
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="08014, Barcelona"
+            android:drawableStart="@drawable/location"
+            android:drawablePadding="10dp"
+            android:hint="@string/prompt_password"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:textSize="14sp"
+            android:inputType="text"
+            android:selectAllOnFocus="true" />
+
+      </LinearLayout>
+
+  <fragment
+      android:id="@+id/map"
+      android:name="com.google.android.gms.maps.SupportMapFragment"
+      android:layout_width="match_parent"
+      android:layout_height="300dp"
+      android:layout_below="@+id/edit_texts_container" />
+
+    </RelativeLayout>
+
+  </ScrollView>
+
+  <Button
+      android:id="@+id/update_profile_button"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"
+      android:layout_alignParentBottom="true"
+      android:textColor="@android:color/white"
+      android:text="Actualizar perfil"
+      android:background="@color/colorAccent" />
+
+</RelativeLayout>

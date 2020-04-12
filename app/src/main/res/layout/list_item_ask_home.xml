@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="10dp"
+      android:orientation="vertical"
+      android:background="@drawable/list_item_home_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/users_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:padding="10dp"
+                android:src="@drawable/profile"/>
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="10dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/profile"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/user_icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:src="@drawable/profile"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/tv_name"
+          android:layout_width="wrap_content"
+          android:layout_height="0dp"
+          android:layout_weight="50"
+          android:textSize="16sp"
+          android:gravity="center" />
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="0dp"
+          android:layout_weight="50"
+          android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/star_filled"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/star_filled"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/star_filled"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/star_filled"/>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:src="@drawable/star_filled"/>
+
+      </LinearLayout>
+
+  </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical">
+
+      <RelativeLayout
+          android:layout_width="wrap_content"
+          android:layout_height="0dp"
+          android:layout_weight="50" >
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_toStartOf="@+id/tv_distance"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/location"/>
+
+        <TextView
+            android:id="@+id/tv_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:textSize="14sp"
+            android:layout_marginEnd="10dp"
+            android:gravity="end|center_vertical"
+            android:text="a 1km de tí"/>
+
+      </RelativeLayout>
+
+      <TextView
+          android:id="@+id/tv_opinions"
+          android:layout_width="match_parent"
+          android:layout_height="0dp"
+          android:layout_weight="50"
+          android:textSize="14sp"
+          android:gravity="end|center"
+          android:layout_marginEnd="10dp"
+          android:text="2 opiniones"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/triangle"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@color/colorDescBackground">
+
+      <TextView
+          android:id="@+id/tv_description"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textSize="14sp"
+          android:gravity="start"
+          android:text="Necesito tabaco"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+      <RelativeLayout
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:layout_weight="50">
+
+        <ImageView
+            android:id="@+id/image_time"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/calendar"/>
+
+        <LinearLayout
+            android:id="@+id/time_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/image_time"
+            android:orientation="vertical">
+
+          <TextView
+              android:id="@+id/tv_day"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="50"
+              android:textSize="14sp"
+              android:gravity="start|center"
+              android:text="El 18 de Marzo"/>
+
+          <TextView
+              android:id="@+id/tv_time"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:layout_weight="50"
+              android:textSize="14sp"
+              android:gravity="start|center"
+              android:text="20:30 a 21:45"/>
+
+        </LinearLayout>
+      </RelativeLayout>
+
+      <RelativeLayout
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="50">
+
+        <Button
+            android:id="@+id/order_button"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_alignParentEnd="true"
+            android:textColor="@android:color/white"
+            android:textSize="12dp"
+            android:text="Aceptar Recado"
+            android:background="@color/colorAccent" />
+
+      </RelativeLayout>
+
+    </LinearLayout>
+
+  </LinearLayout>
+</LinearLayout>

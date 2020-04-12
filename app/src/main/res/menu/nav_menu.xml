@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_my_ask"
+            android:icon="@drawable/ringbell"
+            android:title="Mis pedidos"/>
+        <item
+            android:id="@+id/nav_errands"
+            android:icon="@drawable/errand"
+            android:title="Mis recados"/>
+        <item
+            android:id="@+id/nav_my_donations"
+            android:icon="@drawable/donate"
+            android:title="Mis donaciones"/>
+    </group>
+
+
+    <item android:title="Ajustes">
+        <menu>
+            <item
+                android:id="@+id/nav_update"
+                android:icon="@drawable/edit"
+                android:title="Actualizar perfil"/>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="Cerrar sesión"/>
+        </menu>
+    </item>
+</menu>

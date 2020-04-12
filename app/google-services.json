@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "362732069991",
+    "firebase_url": "https://glovid-1586334870624.firebaseio.com",
+    "project_id": "glovid-1586334870624",
+    "storage_bucket": "glovid-1586334870624.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362732069991:android:4e5c29a39d30fb8ed660c2",
+        "android_client_info": {
+          "package_name": "com.cryptox.glovid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362732069991-nupkfumu9dd79nvmfbhrtpuc66kmg9ec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2IySQ4YpdKHb4Y0pSS_TEWBVB0LNrlfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362732069991-nupkfumu9dd79nvmfbhrtpuc66kmg9ec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

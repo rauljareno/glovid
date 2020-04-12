@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity">
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="33"
+      android:orientation="vertical"
+      android:background="@color/colorAccent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="70"
+        android:src="@drawable/ic_logo"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"/>
+
+  </LinearLayout>
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="66">
+
+    <Button
+        android:id="@+id/fb_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@color/colorFbBackground"
+        android:text="@string/com_facebook_loginview_log_in_button_long"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/google_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fb_button"
+        android:layout_margin="30dp"
+        android:background="@color/colorGoogleBackground"
+        android:text="@string/main_google_login"
+        android:textColor="#ffffff" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="30dp"
+        android:layout_alignParentBottom="true">
+
+      <TextView
+          android:id="@+id/login_button"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textColor="@color/colorAccent"
+          android:text="@string/main_login"
+          android:gravity="center"
+          android:layout_marginBottom="10dp"
+          android:textSize="18sp"/>
+
+        <LinearLayout
+            android:id="@+id/register_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/login_button"
+            android:orientation="horizontal">
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/main_not_account"
+              android:textSize="16sp"
+              android:layout_marginEnd="5dp"/>
+
+          <TextView
+              android:id="@+id/register_button"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="@color/colorAccent"
+              android:text="@string/main_register"
+              android:textSize="16sp"/>
+
+        </LinearLayout>
+
+      <TextView
+          android:id="@+id/terms_conditions"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:gravity="center"
+          android:layout_marginTop="20dp"
+          android:layout_below="@+id/register_container"
+          android:textColor="@android:color/darker_gray"
+          android:text="@string/main_terms_conditions"
+          android:textSize="12sp"/>
+
+      </RelativeLayout>
+
+  </RelativeLayout>
+
+</LinearLayout>
