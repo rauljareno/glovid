@@ -35,6 +35,6 @@ class ErrandAcceptedActivity : AppCompatActivity() {
             finish()
         }
 
-        contactBtn.text = getString(R.string.action_contact_to, order!!.id)
+        contactBtn.text = getString(R.string.action_contact_to, order!!.user?.name)
     }
 }

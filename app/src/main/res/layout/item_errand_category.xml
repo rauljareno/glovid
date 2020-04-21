@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_centerInParent="true">
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="10dp"
+      android:scaleType="fitCenter">
+
+    <ImageView android:id="@+id/circle_crop"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter"
+        android:padding="3dp"
+        android:src="@drawable/circle" />
+
+    <ImageView android:id="@+id/pic"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ringbell" />
+
+  </RelativeLayout>
+
+  <TextView
+      android:id="@+id/tv_name"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColor="@android:color/white"
+      android:gravity="center"
+      android:text="@string/home_ask"
+      android:textSize="16sp"/>
+
+</LinearLayout>

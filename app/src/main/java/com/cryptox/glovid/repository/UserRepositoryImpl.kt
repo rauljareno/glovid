@@ -18,9 +18,13 @@ class UserRepositoryImpl @Inject constructor(var apiService: APIService) : UserR
     private val profileCall = NetworkCall<ProfileResponse>()
 
     @POST(ApiRoutes.REGISTER)
-    override fun register(name: String, email: String, password: String):LiveData<Resource<UserResponse>> {
+    override fun register(name: String, email: String, phoneNumber: String, latitude: Double,
+                          longitude: Double, countryCode: String, postalCode: String,
+                          password: String):LiveData<Resource<UserResponse>> {
        return userCall.makeCall(apiService.register(createJsonRequestBody(
-           "email" to email, "name" to name, "password" to password)))
+           "name" to name, "email" to email, "phoneNumber" to phoneNumber,
+           "latitude" to latitude.toString(), "longitude" to longitude.toString(),
+           "countryCode" to countryCode, "postalCode" to postalCode, "password" to password)))
     }
 
     @POST(ApiRoutes.LOGIN)

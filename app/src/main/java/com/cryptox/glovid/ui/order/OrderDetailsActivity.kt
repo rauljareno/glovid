@@ -18,8 +18,10 @@ import com.cryptox.glovid.data.model.Order
 import com.cryptox.glovid.ui.chat.ChatActivity
 import com.cryptox.glovid.ui.donation.DonationRequestedActivity
 import com.cryptox.glovid.ui.errand.ErrandAcceptedActivity
+import com.cryptox.glovid.utils.ImageUtils
 import com.cryptox.glovid.utils.getJsonExtra
 import com.cryptox.glovid.utils.putExtraJson
+import com.cryptox.glovid.viewModels.orders.OrderType
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -42,26 +44,26 @@ class OrderDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
         order = intent.getJsonExtra("ORDER", Order::class.java)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        if (order?.type == 2) {
+        if (order?.type == OrderType.GIVE.toString()) {
             supportActionBar?.title = getString(R.string.donation)
         } else {
             supportActionBar?.title = getString(R.string.errand)
         }
 
         val tvName = findViewById<TextView>(R.id.tv_name)
-        tvName.text = order?.id
+        tvName.text = order?.user?.name
 
         val tvDesc = findViewById<TextView>(R.id.tv_description)
         tvDesc.text = order?.detail
 
         val acceptErrandBtn = findViewById<Button>(R.id.accept_errand_button)
-        if (order?.type == 2) {
+        if (order?.type == OrderType.GIVE.toString()) {
             acceptErrandBtn.text = getString(R.string.request_donation)
         } else {
             acceptErrandBtn.text = getString(R.string.accept_errand)
         }
         acceptErrandBtn.setOnClickListener {
-            if (order?.type == 2) {
+            if (order?.type == OrderType.GIVE.toString()) {
                 val intent = Intent(this, DonationRequestedActivity::class.java)
                 intent.putExtraJson("ORDER", order!!)
                 startActivity(intent)
@@ -112,8 +114,8 @@ class OrderDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
         val barcelona = LatLng(41.385, 2.173)
         googleMap?.addMarker(
             MarkerOptions().position(barcelona)
-                .title(order?.id)
-                .icon(BitmapDescriptorFactory.fromBitmap(getBitmapFromVectorDrawable(applicationContext, R.drawable.location)))
+                .title(order?.user?.name)
+                .icon(BitmapDescriptorFactory.fromBitmap(ImageUtils.getBitmapFromVectorDrawable(applicationContext, R.drawable.location)))
         )
         //Move the camera to the user's location and zoom in!
         googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(barcelona, 18.0f))
@@ -123,21 +125,5 @@ class OrderDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
         )
 
         //googleMap?.moveCamera(CameraUpdateFactory.newLatLng(barcelona))
-    }
-
-    fun getBitmapFromVectorDrawable(context: Context?, drawableId: Int): Bitmap? {
-        var drawable =
-            ContextCompat.getDrawable(context!!, drawableId)
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            drawable = DrawableCompat.wrap(drawable!!).mutate()
-        }
-        val bitmap = Bitmap.createBitmap(
-            drawable!!.intrinsicWidth,
-            drawable.intrinsicHeight, Bitmap.Config.ARGB_8888
-        )
-        val canvas = Canvas(bitmap)
-        drawable.setBounds(0, 0, canvas.width, canvas.height)
-        drawable.draw(canvas)
-        return bitmap
     }
 }

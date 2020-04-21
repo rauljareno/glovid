@@ -1,8 +1,10 @@
 package com.cryptox.glovid.network.environment
 
+import com.cryptox.glovid.BuildConfig
+
 class BaseEnvironment : Environment{
 
-    private var baseUrl = "http://ec2-34-242-28-117.eu-west-1.compute.amazonaws.com:8080/"
+    private var baseUrl = BuildConfig.BASE_URL
 
     override fun getBaseUrl():String {
       return baseUrl

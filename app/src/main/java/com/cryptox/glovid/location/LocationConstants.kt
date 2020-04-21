@@ -1,0 +1,16 @@
+package com.cryptox.glovid.location
+
+object LocationConstants {
+    const val SUCCESS_RESULT = 0
+    const val FAILURE_RESULT = 1
+    const val USE_ADDRESS_NAME = 1
+    const val USE_ADDRESS_LOCATION = 2
+    const val PACKAGE_NAME = "com.cryptox.glovid"
+    const val RECEIVER = "$PACKAGE_NAME.RECEIVER"
+    const val RESULT_DATA_KEY = "$PACKAGE_NAME.RESULT_DATA_KEY"
+    const val RESULT_ADDRESS = "$PACKAGE_NAME.RESULT_ADDRESS"
+    const val LOCATION_LATITUDE_DATA_EXTRA = "$PACKAGE_NAME.LOCATION_LATITUDE_DATA_EXTRA"
+    const val LOCATION_LONGITUDE_DATA_EXTRA = "$PACKAGE_NAME.LOCATION_LONGITUDE_DATA_EXTRA"
+    const val LOCATION_NAME_DATA_EXTRA = "$PACKAGE_NAME.LOCATION_NAME_DATA_EXTRA"
+    const val FETCH_TYPE_EXTRA = "$PACKAGE_NAME.FETCH_TYPE_EXTRA"
+}

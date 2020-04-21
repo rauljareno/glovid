@@ -1,4 +1,4 @@
-package shasin.weatherapp.utils
+package com.cryptox.glovid.utils
 
 import java.text.SimpleDateFormat
 

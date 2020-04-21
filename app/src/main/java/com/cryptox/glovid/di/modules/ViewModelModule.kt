@@ -8,6 +8,7 @@ import dagger.multibindings.IntoMap
 import com.cryptox.glovid.di.ViewModelKey
 import com.cryptox.glovid.viewModels.ViewModelFactory
 import com.cryptox.glovid.viewModels.login.LoginViewModelImpl
+import com.cryptox.glovid.viewModels.orders.OrdersViewModelImpl
 import com.cryptox.glovid.viewModels.signup.SignUpViewModelImpl
 
 @Suppress("unused")
@@ -23,6 +24,10 @@ abstract class ViewModelModule {
     @ViewModelKey(LoginViewModelImpl::class)
     abstract fun bindLoginViewModel(loginViewModelImpl: LoginViewModelImpl): ViewModel
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(OrdersViewModelImpl::class)
+    abstract fun bindOrdersViewModel(ordersViewModelImpl: OrdersViewModelImpl): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory

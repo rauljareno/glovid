@@ -7,8 +7,9 @@ interface ApiRoutes {
         const val LOGIN = "session/login"
         const val LOGOUT = "session/logout"
         const val PROFILE = "profile"
-        const val CREATE_ORDER = "order"
-        const val ORDER_LIST = "order/list"
-        const val ORDER_BY_ID = "order/"
+        const val ORDER_CREATE = "order"
+        const val USER_ORDERS_LIST = "order/list"
+        const val ORDER_SEARCH = "order/search"
+        const val USER_ORDER_BY_ID = "order/"
     }
 }

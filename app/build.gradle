@@ -19,6 +19,7 @@ android {
     targetSdkVersion 29
     versionCode 2
     versionName "1.0.0"
+    flavorDimensions "glovid"
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -49,6 +50,19 @@ android {
       }
   }
 
+  productFlavors {
+    production {
+      dimension 'glovid'
+      buildConfigField("String", "BASE_URL", "\"http://ec2-34-242-28-117.eu-west-1.compute.amazonaws.com:8080/\"")
+    }
+
+    development {
+      dimension 'glovid'
+      buildConfigField("String", "BASE_URL", "\"http://ec2-34-242-28-117.eu-west-1.compute.amazonaws.com:8888/\"")
+      applicationIdSuffix ".develop"
+    }
+  }
+
 }
 
 dependencies {
@@ -67,7 +81,8 @@ dependencies {
   androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
   implementation 'com.google.android.gms:play-services-maps:17.0.0'
   implementation "com.google.android.gms:play-services-location:17.0.0"
-  implementation 'com.auth0.android:jwtdecode:2.0.0'
+  //implementation 'com.auth0.android:jwtdecode:2.0.0'
+    implementation 'com.github.joielechong:countrycodepicker:2.4.1'
 }
 
 //REST Retrofit

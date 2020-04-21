@@ -5,5 +5,7 @@ package com.cryptox.glovid.viewModels.signup
  */
 data class SignUpFormState(val nameError: Int? = null,
                            val emailError: Int? = null,
+                           val phoneNumberError: Int? = null,
                            val passwordError: Int? = null,
+                           val addressError: Int? = null,
                            val isDataValid: Boolean = false)

@@ -17,7 +17,7 @@ class ChatActivity : AppCompatActivity() {
         val order = intent.getJsonExtra("ORDER", Order::class.java)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = order?.id
+        supportActionBar?.title = order?.user?.id
         supportActionBar?.subtitle = "últ. vez 11:34"
     }
 

@@ -2,7 +2,6 @@ package com.cryptox.glovid.viewModels.login
 
 import android.util.Patterns
 import androidx.lifecycle.*
-import com.auth0.android.jwt.JWT
 import com.cryptox.glovid.R
 import com.cryptox.glovid.data.model.User
 import com.cryptox.glovid.data.responseModel.ProfileResponse
@@ -80,14 +79,13 @@ class LoginViewModelImpl @Inject constructor(private val userRepository: UserRep
 
     override fun login(): LiveData<User> {
         return Transformations.map(loginResponse){
-            val jwt = JWT(it?.token!!)
-            User(userId, "", it.token!!)
+            User(userId, "", it?.token!!)
         }
     }
 
     override fun profile(): LiveData<User> {
         return Transformations.map(profileResponse){
-            User(it.email!!, it.name!!, prefs.user!!.token)
+            User(it?.email!!, it?.name!!, prefs.user!!.token)
         }
     }
 

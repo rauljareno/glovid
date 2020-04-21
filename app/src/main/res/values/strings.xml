@@ -1,14 +1,18 @@
 <resources>
   <string name="app_name">Glovid</string>
   <!-- Strings related to login -->
-  <string name="prompt_email">Email</string>
+  <string name="prompt_email">Correo electrónico</string>
   <string name="prompt_password">Contraseña</string>
+  <string name="prompt_phone_number">Número de teléfono</string>
+  <string name="prompt_address">Dirección</string>
   <string name="action_sign_in">Iniciar sesion</string>
   <string name="action_sign_in_short">Iniciar sesion</string>
   <string name="welcome">"Bienvenido !"</string>
   <string name="invalid_name">El nombre no puede estar vacío</string>
-  <string name="invalid_email">El email no es correcto</string>
+  <string name="invalid_email">El correo electrónico no es correcto</string>
+  <string name="invalid_phone_number">El número de teléfono no es correcto</string>
   <string name="invalid_password">La contraseña no puede estar vacía</string>
+  <string name="invalid_address">La dirección no es correcta</string>
   <string name="login_failed">"El inicio de sesión ha fallado"</string>
   <!-- Strings related to sign up -->
   <string name="prompt_name">Nombre</string>
@@ -42,6 +46,7 @@
   <string name="unable_to_get_current_location">No ha sido posible obtener tu posición actual</string>
 
   <string name="new_ask_name">Nuevo pedido</string>
+  <string name="errand_category_name">Seleccione una categoría</string>
   <string name="new_donation_name">Nuevo donativo</string>
   <string name="profile_name">Perfil</string>
   <string name="update_profile">Actualizar perfil</string>
@@ -49,4 +54,12 @@
   <string name="request_donation">Solicitar donativo</string>
   <string name="errand">Recado</string>
   <string name="donation">Donativo</string>
+
+  <string name="not_available_yet">Esta funcionalidad no esta disponible aún, disculpe las molestias</string>
+
+  <string name="invalid_desc">El descripción no puede estar vacía</string>
+  <string name="new_ask_failed">"El pedido ha fallado"</string>
+  <string name="new_donation_failed">"El donativo ha fallado"</string>
+  <string name="needs">Necesita %s</string>
+  <string name="wants_to_donate">Quiere donar %s</string>
 </resources>

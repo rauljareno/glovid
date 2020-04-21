@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.cryptox.glovid.R
 import com.cryptox.glovid.prefs
+import com.cryptox.glovid.utils.ImageUtils
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -64,7 +65,7 @@ class ProfileActivity : AppCompatActivity(), OnMapReadyCallback {
         googleMap?.addMarker(
             MarkerOptions().position(barcelona)
                 .title(String.format("Casa de %s", prefs.user?.displayName))
-                .icon(BitmapDescriptorFactory.fromBitmap(getBitmapFromVectorDrawable(applicationContext, R.drawable.location)))
+                .icon(BitmapDescriptorFactory.fromBitmap(ImageUtils.getBitmapFromVectorDrawable(applicationContext, R.drawable.location)))
         )
         //Move the camera to the user's location and zoom in!
         googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(barcelona, 18.0f))
@@ -74,21 +75,5 @@ class ProfileActivity : AppCompatActivity(), OnMapReadyCallback {
         )
 
         //googleMap?.moveCamera(CameraUpdateFactory.newLatLng(barcelona))
-    }
-
-    fun getBitmapFromVectorDrawable(context: Context?, drawableId: Int): Bitmap? {
-        var drawable =
-            ContextCompat.getDrawable(context!!, drawableId)
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            drawable = DrawableCompat.wrap(drawable!!).mutate()
-        }
-        val bitmap = Bitmap.createBitmap(
-            drawable!!.intrinsicWidth,
-            drawable.intrinsicHeight, Bitmap.Config.ARGB_8888
-        )
-        val canvas = Canvas(bitmap)
-        drawable.setBounds(0, 0, canvas.width, canvas.height)
-        drawable.draw(canvas)
-        return bitmap
     }
 }
