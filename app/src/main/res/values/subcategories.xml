@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="buy_subcategories">
+        <item>@string/category_buy_food</item>
+        <item>@string/category_buy_pharmacy</item>
+        <item>@string/category_buy_tobacco</item>
+        <item>@string/category_buy_kiosk</item>
+        <item>@string/category_buy_present</item>
+    </string-array>
+    <string-array name="fun_subcategories">
+        <item>@string/category_fun_chat</item>
+        <item>@string/category_fun_movie</item>
+        <item>@string/category_fun_sing</item>
+        <item>@string/category_fun_dance</item>
+        <item>@string/category_fun_play</item>
+    </string-array>
+    <string-array name="mail_subcategories">
+        <item>@string/category_mail_send_package</item>
+        <item>@string/category_mail_receive_package</item>
+        <item>@string/category_mail_send_money</item>
+        <item>@string/category_mail_receive_money</item>
+        <item>@string/category_mail_fax_burofax</item>
+    </string-array>
+    <string-array name="transport_subcategories">
+        <item>@string/category_transport_hospital</item>
+        <item>@string/category_transport_airport</item>
+        <item>@string/category_transport_station</item>
+        <item>@string/category_transport_work</item>
+        <item>@string/category_transport_shopping</item>
+    </string-array>
+    <string-array name="homework_subcategories">
+        <item>@string/category_homework_math</item>
+        <item>@string/category_homework_language</item>
+        <item>@string/category_homework_biology</item>
+        <item>@string/category_homework_physics</item>
+        <item>@string/category_homework_chemistry</item>
+        <item>@string/category_homework_history</item>
+    </string-array>
+    <string-array name="items_subcategories">
+        <item>@string/category_items_tools</item>
+        <item>@string/category_items_kitchen</item>
+        <item>@string/category_items_bathroom</item>
+        <item>@string/category_items_clothes</item>
+        <item>@string/category_items_cleaning</item>
+        <item>@string/category_items_toys</item>
+        <item>@string/category_items_food</item>
+    </string-array>
+    <string-array name="care_subcategories">
+        <item>@string/category_care_children</item>
+        <item>@string/category_care_elders</item>
+        <item>@string/category_care_pets</item>
+    </string-array>
+    <string-array name="services_subcategories">
+        <item>@string/category_services_doctor</item>
+        <item>@string/category_services_phone</item>
+        <item>@string/category_services_internet</item>
+        <item>@string/category_services_electricity</item>
+        <item>@string/category_services_gas</item>
+    </string-array>
+
+    <string-array name="psychological_aid_subcategories">
+        <item>@string/category_psychological_aid_depression</item>
+        <item>@string/category_psychological_aid_anxiety</item>
+        <item>@string/category_psychological_aid_abuse</item>
+    </string-array>
+    <string-array name="first_aid_subcategories">
+        <item>@string/category_first_aid_burn</item>
+        <item>@string/category_first_aid_cut</item>
+        <item>@string/category_first_aid_bleeding</item>
+        <item>@string/category_first_aid_suffocation</item>
+        <item>@string/category_first_aid_faint</item>
+    </string-array>
+    <string-array name="housework_subcategories">
+        <item>@string/category_housework_fixing</item>
+        <item>@string/category_housework_cleaning</item>
+        <item>@string/category_housework_washing_clothes</item>
+        <item>@string/category_housework_trash</item>
+    </string-array>
+</resources>

@@ -11,6 +11,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.cryptox.glovid.R
+import com.cryptox.glovid.data.model.CategoryEnum
+import com.cryptox.glovid.data.model.SubcategoryEnum
 import com.cryptox.glovid.ui.chat.ChatActivity
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
@@ -25,7 +27,9 @@ class NewDonationActivity : AppCompatActivity() , HasSupportFragmentInjector {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setFragment(NewDonationFragment())
+        val category = intent.getSerializableExtra("Category") as CategoryEnum?
+        val subcategory = intent.getSerializableExtra("Subcategory") as SubcategoryEnum?
+        setFragment(NewDonationFragment(category, subcategory))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

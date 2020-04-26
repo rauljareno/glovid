@@ -44,7 +44,7 @@
         android:textColor="@android:color/white"
         android:layout_marginTop="20dp"
         android:textSize="18dp"
-        android:text="Se ha solicitado el donativo\n\n Por favor, espere la respuesta\n del donante. Mientras tanto, puedes\n ponerte en contacto con el usuario\n para explicarle tus necesidades" />
+        android:text="Se ha solicitado el donativo\n\n Por favor, ponte en contacto con el usuario\n para explicarle tus necesidades" />
 
     <Button
         android:id="@+id/contact_user_btn"

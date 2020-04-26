@@ -1,6 +1,7 @@
 package com.cryptox.glovid.ui.donation
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.*
@@ -27,9 +28,10 @@ class DonationRequestedActivity : AppCompatActivity() {
 
         val contactBtn = findViewById<Button>(R.id.contact_user_btn)
         contactBtn.setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtraJson("ORDER", order!!)
-            startActivity(intent)
+            val url = "https://api.whatsapp.com/send?phone="+ order?.user?.phoneNumber
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
             finish()
         }
 

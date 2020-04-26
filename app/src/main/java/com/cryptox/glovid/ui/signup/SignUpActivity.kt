@@ -1,5 +1,6 @@
 package com.cryptox.glovid.ui.signup
 
+import android.location.Location
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -15,7 +16,10 @@ class SignUpActivity : AppCompatActivity() , HasSupportFragmentInjector {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setFragment(SignUpFragment())
+
+        val location = intent.getParcelableExtra<Location>("Location")
+
+        setFragment(SignUpFragment(location))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

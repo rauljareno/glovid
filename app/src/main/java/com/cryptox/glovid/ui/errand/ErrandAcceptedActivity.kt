@@ -1,16 +1,14 @@
 package com.cryptox.glovid.ui.errand
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-
 import com.cryptox.glovid.R
 import com.cryptox.glovid.data.model.Order
-import com.cryptox.glovid.ui.chat.ChatActivity
 import com.cryptox.glovid.utils.getJsonExtra
-import com.cryptox.glovid.utils.putExtraJson
 
 class ErrandAcceptedActivity : AppCompatActivity() {
 
@@ -29,9 +27,10 @@ class ErrandAcceptedActivity : AppCompatActivity() {
 
         val contactBtn = findViewById<Button>(R.id.contact_user_btn)
         contactBtn.setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtraJson("ORDER", order!!)
-            startActivity(intent)
+            val url = "https://api.whatsapp.com/send?phone="+ order?.user?.phoneNumber
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
             finish()
         }
 

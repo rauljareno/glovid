@@ -9,6 +9,7 @@ import com.cryptox.glovid.di.ViewModelKey
 import com.cryptox.glovid.viewModels.ViewModelFactory
 import com.cryptox.glovid.viewModels.login.LoginViewModelImpl
 import com.cryptox.glovid.viewModels.orders.OrdersViewModelImpl
+import com.cryptox.glovid.viewModels.profile.ProfileViewModelImpl
 import com.cryptox.glovid.viewModels.signup.SignUpViewModelImpl
 
 @Suppress("unused")
@@ -23,6 +24,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModelImpl::class)
     abstract fun bindLoginViewModel(loginViewModelImpl: LoginViewModelImpl): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ProfileViewModelImpl::class)
+    abstract fun bindProfileViewModel(profileViewModelImpl: ProfileViewModelImpl): ViewModel
 
     @Binds
     @IntoMap

@@ -4,16 +4,16 @@
     <group>
         <item
             android:id="@+id/nav_my_ask"
-            android:icon="@drawable/ringbell"
-            android:title="Mis pedidos"/>
-        <item
+            android:icon="@drawable/ask"
+            android:title="@string/my_asks"/>
+        <!--<item
             android:id="@+id/nav_errands"
             android:icon="@drawable/errand"
-            android:title="Mis recados"/>
+            android:title="@string/my_errands"/>-->
         <item
             android:id="@+id/nav_my_donations"
             android:icon="@drawable/donate"
-            android:title="Mis donaciones"/>
+            android:title="@string/my_donations"/>
     </group>
 
 

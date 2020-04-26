@@ -37,16 +37,17 @@
   <string name="fb_login_protocol_scheme">fb550611872239596</string>
 
   <!-- Strings related to new donation -->
-  <string name="prompt_what_donation">¿Qué quieres donar?</string>
+  <string name="prompt_what_donation">Observaciones (opcional)</string>
   <string name="prompt_donation_requirement">¿Algún requisito para poder solicitarlo?</string>
 
-  <string name="prompt_what_ask">¿Qué necesitas?</string>
+  <string name="prompt_what_ask">Observaciones (opcional)</string>
   <string name="prompt_time_needed">Indica un día y franja horaria</string>
 
   <string name="unable_to_get_current_location">No ha sido posible obtener tu posición actual</string>
 
   <string name="new_ask_name">Nuevo pedido</string>
   <string name="errand_category_name">Seleccione una categoría</string>
+  <string name="errand_subcategory_name">Seleccione una subcategoría</string>
   <string name="new_donation_name">Nuevo donativo</string>
   <string name="profile_name">Perfil</string>
   <string name="update_profile">Actualizar perfil</string>
@@ -54,6 +55,9 @@
   <string name="request_donation">Solicitar donativo</string>
   <string name="errand">Recado</string>
   <string name="donation">Donativo</string>
+  <string name="ask">Pedido</string>
+
+  <string name="order_status_pending">Pendiente</string>
 
   <string name="not_available_yet">Esta funcionalidad no esta disponible aún, disculpe las molestias</string>
 
@@ -61,5 +65,90 @@
   <string name="new_ask_failed">"El pedido ha fallado"</string>
   <string name="new_donation_failed">"El donativo ha fallado"</string>
   <string name="needs">Necesita %s</string>
-  <string name="wants_to_donate">Quiere donar %s</string>
+  <string name="offers">Ofrece %s</string>
+  <string name="user_needs">Necesitas %s</string>
+  <string name="user_offers">Ofreces %s</string>
+
+  <string name="category_buy">Compra</string>
+  <string name="category_entertainment">Diversión</string>
+  <string name="category_mail">Correos</string>
+  <string name="category_transport">Transporte</string>
+  <string name="category_homework">Deberes</string>
+  <string name="category_items">Utensilios</string>
+  <string name="category_care">Cuidado</string>
+  <string name="category_appointment">Gestión de servicios</string>
+  <string name="category_pet_walking">Pasear mascotas</string>
+  <string name="category_psychological_aid">Ayuda Psicológica</string>
+  <string name="category_first_aid">Primeros Auxilios</string>
+  <string name="category_housework">Tareas del hogar</string>
+  <string name="category_others">Otros</string>
+
+  <string name="category_buy_food">Alimentación</string>
+  <string name="category_buy_pharmacy">Farmacia</string>
+  <string name="category_buy_tobacco">Estanco</string>
+  <string name="category_buy_kiosk">Quiosco</string>
+  <string name="category_buy_present">Regalo</string>
+
+  <string name="category_fun_chat">Conversar</string>
+  <string name="category_fun_movie">Serie/Película</string>
+  <string name="category_fun_sing">Cantar</string>
+  <string name="category_fun_dance">Bailar</string>
+  <string name="category_fun_play">Jugar</string>
+
+  <string name="category_mail_send_package">Enviar Paquete</string>
+  <string name="category_mail_receive_package">Recibir Paquete</string>
+  <string name="category_mail_send_money">Enviar dinero</string>
+  <string name="category_mail_receive_money">Recibir dinero</string>
+  <string name="category_mail_fax_burofax">Fax/Burofax</string>
+
+  <string name="category_transport_hospital">Ir al hospital</string>
+  <string name="category_transport_airport">Ir al aeropuerto</string>
+  <string name="category_transport_station">Ir a la estación</string>
+  <string name="category_transport_work">Ir a trabajar</string>
+  <string name="category_transport_shopping">Ir a comprar</string>
+
+  <string name="category_homework_math">Matemáticas</string>
+  <string name="category_homework_language">Idiomas</string>
+  <string name="category_homework_biology">Biología</string>
+  <string name="category_homework_physics">Física</string>
+  <string name="category_homework_chemistry">Química</string>
+  <string name="category_homework_history">Historia</string>
+
+  <string name="category_items_tools">Herramientas</string>
+  <string name="category_items_kitchen">Cocina</string>
+  <string name="category_items_bathroom">Baño</string>
+  <string name="category_items_clothes">Ropa</string>
+  <string name="category_items_cleaning">Limpieza</string>
+  <string name="category_items_toys">Juguetes</string>
+  <string name="category_items_food">Comida</string>
+
+  <string name="category_care_children">Niños</string>
+  <string name="category_care_elders">Ancianos</string>
+  <string name="category_care_pets">Mascotas</string>
+
+  <string name="category_services_doctor">Médico</string>
+  <string name="category_services_phone">Telefonía</string>
+  <string name="category_services_internet">Internet</string>
+  <string name="category_services_electricity">Luz</string>
+  <string name="category_services_gas">Gas</string>
+
+  <string name="category_psychological_aid_depression">Depresión</string>
+  <string name="category_psychological_aid_anxiety">Ansiedad</string>
+  <string name="category_psychological_aid_abuse">Maltrato</string>
+
+  <string name="category_first_aid_burn">Quemadura</string>
+  <string name="category_first_aid_cut">Corte</string>
+  <string name="category_first_aid_bleeding">Hemorragia</string>
+  <string name="category_first_aid_suffocation">Asfixia</string>
+  <string name="category_first_aid_faint">Desmayo</string>
+
+  <string name="category_housework_fixing">Arreglos</string>
+  <string name="category_housework_cleaning">Limpieza</string>
+  <string name="category_housework_washing_clothes">Lavar ropa</string>
+  <string name="category_housework_trash">Sacar la basura</string>
+
+  <string name="my_asks">Mis pedidos</string>
+  <string name="my_errands">Mis recados</string>
+  <string name="my_donations">Mis donaciones</string>
+
 </resources>

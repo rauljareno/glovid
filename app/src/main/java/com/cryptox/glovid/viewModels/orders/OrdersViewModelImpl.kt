@@ -1,16 +1,10 @@
 package com.cryptox.glovid.viewModels.orders
 
-import android.util.Patterns
 import androidx.lifecycle.*
-import com.cryptox.glovid.R
 import com.cryptox.glovid.data.model.Order
-import com.cryptox.glovid.data.model.User
-import com.cryptox.glovid.data.responseModel.OrdersResponse
-import com.cryptox.glovid.data.responseModel.UserResponse
 import com.cryptox.glovid.network.api.Resource
 import com.cryptox.glovid.network.api.ResourceError
 import com.cryptox.glovid.repository.OrderRepository
-import com.cryptox.glovid.repository.UserRepository
 import javax.inject.Inject
 
 class OrdersViewModelImpl @Inject constructor(private val orderRepository: OrderRepository):
@@ -53,6 +47,16 @@ class OrdersViewModelImpl @Inject constructor(private val orderRepository: Order
 
     override fun searchOrders(): LiveData<List<Order>> {
         return ordersResponse
+    }
+
+    override fun callGetUserOrdersAPI() {
+        orderRepository.getUserOrders().observeForever { ordersCallObserver.onChanged(it)}
+    }
+
+    override fun getUserOrders(orderType: OrderType): LiveData<List<Order>> {
+        return Transformations.map(ordersResponse) {
+            it.filter { it2 -> it2.type == orderType.toString() }
+        }
     }
 
     override fun getUserOrderById(): LiveData<Order> {
@@ -103,14 +107,6 @@ class OrdersViewModelImpl @Inject constructor(private val orderRepository: Order
         return error
     }
 
-    override fun getUserOrders(): LiveData<List<Order>> {
-        TODO("Not yet implemented")
-    }
-
-    override fun callGetUserOrdersAPI(query: String) {
-        TODO("Not yet implemented")
-    }
-
     fun isError():LiveData<Boolean>{
         return isError
     }
@@ -142,22 +138,22 @@ class OrdersViewModelImpl @Inject constructor(private val orderRepository: Order
     }
 
     fun newErrandDataChanged(desc: String) {
-        if (desc.isEmpty()) {
+        /*if (desc.isEmpty()) {
             _newErrandForm.value =
                 NewErrandFormState(descError = R.string.invalid_desc)
-        } else {
+        } else {*/
             _newErrandForm.value =
                 NewErrandFormState(isDataValid = true)
-        }
+        //}
     }
 
     fun newDonationDataChanged(desc: String) {
-        if (desc.isEmpty()) {
+        /*if (desc.isEmpty()) {
             _newDonationForm.value =
                 NewDonationFormState(descError = R.string.invalid_desc)
-        } else {
+        } else {*/
             _newDonationForm.value =
                 NewDonationFormState(isDataValid = true)
-        }
+        //}
     }
 }

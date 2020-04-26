@@ -55,7 +55,7 @@ class HomeAdapter(val items : ArrayList<Order>, val context: Context) : Recycler
                 holder.icUser?.visibility = View.GONE
                 holder.rlUsers?.visibility = View.VISIBLE
             } else {
-                holder.tvDesc?.text = String.format(context.getString(R.string.wants_to_donate), items[position].detail)
+                holder.tvDesc?.text = String.format(context.getString(R.string.offers), items[position].detail)
                 holder.btOrder?.text = context.getString(R.string.request_donation)
                 holder.btOrder?.setTextColor(context.getColor(R.color.colorAccent))
                 holder.btOrder?.background = context.getDrawable(R.drawable.border_button_background)

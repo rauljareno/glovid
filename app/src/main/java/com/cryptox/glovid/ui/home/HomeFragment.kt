@@ -1,33 +1,26 @@
 package com.cryptox.glovid.ui.home
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.annotation.VisibleForTesting
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.cryptox.glovid.R
 import com.cryptox.glovid.adapters.home.HomeAdapter
 import com.cryptox.glovid.data.model.Order
@@ -35,9 +28,9 @@ import com.cryptox.glovid.databinding.FragmentHomeBinding
 import com.cryptox.glovid.di.Injectable
 import com.cryptox.glovid.prefs
 import com.cryptox.glovid.ui.donation.NewDonationActivity
-import com.cryptox.glovid.ui.errand.ErrandCategoryActivity
+import com.cryptox.glovid.ui.category.CategoryActivity
 import com.cryptox.glovid.ui.errand.ErrandsMapActivity
-import com.cryptox.glovid.ui.errand.NewErrandActivity
+import com.cryptox.glovid.ui.errand.UserErrandsActivity
 import com.cryptox.glovid.ui.main.MainActivity
 import com.cryptox.glovid.ui.onboarding.OnboardingActivity
 import com.cryptox.glovid.ui.profile.ProfileActivity
@@ -52,6 +45,10 @@ import javax.inject.Inject
 
 
 open class HomeFragment : Fragment(), Injectable, NavigationView.OnNavigationItemSelectedListener {
+
+    companion object {
+        var needRefresh = false
+    }
 
     private val TAG = HomeFragment::class.java.simpleName
 
@@ -91,8 +88,8 @@ open class HomeFragment : Fragment(), Injectable, NavigationView.OnNavigationIte
         navDrawerSubtitle.text = prefs.user?.userId
 
         ask_button.setOnClickListener {
-            //val intent = Intent(activity, NewErrandActivity::class.java)
-            val intent = Intent(activity, ErrandCategoryActivity::class.java)
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("OrderType", OrderType.ASK)
             startActivity(intent)
         }
 
@@ -102,7 +99,8 @@ open class HomeFragment : Fragment(), Injectable, NavigationView.OnNavigationIte
         }
 
         donate_button.setOnClickListener {
-            val intent = Intent(activity, NewDonationActivity::class.java)
+            val intent = Intent(activity, CategoryActivity::class.java)
+            intent.putExtra("OrderType", OrderType.GIVE)
             startActivity(intent)
         }
 
@@ -154,17 +152,8 @@ open class HomeFragment : Fragment(), Injectable, NavigationView.OnNavigationIte
             itemsSwipeToRefresh.isRefreshing = false
         })
 
-        //loading.visibility = View.VISIBLE
+        itemsSwipeToRefresh.isRefreshing = true
         viewModel.callSearchOrdersAPI(listOf(OrderType.ASK, OrderType.GIVE), listOf(OrderStatus.PENDING, OrderStatus.ACCEPTED))
-    }
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        //setLoadingAnimation()
-        //setRecycler()
-        //observeResponse()
-        //setListener()
     }
 
     override fun onResume() {
@@ -174,18 +163,27 @@ open class HomeFragment : Fragment(), Injectable, NavigationView.OnNavigationIte
             val intent = Intent(activity, OnboardingActivity::class.java)
             startActivity(intent)
         }
+        if (needRefresh) {
+            needRefresh = false
+            itemsSwipeToRefresh.isRefreshing = true
+            viewModel.callSearchOrdersAPI(listOf(OrderType.ASK, OrderType.GIVE), listOf(OrderStatus.PENDING, OrderStatus.ACCEPTED))
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_my_ask -> {
-                Toast.makeText(activity, getString(R.string.not_available_yet), Toast.LENGTH_SHORT).show()
+                val intent = Intent(activity, UserErrandsActivity::class.java)
+                intent.putExtra("OrderType", OrderType.ASK)
+                startActivity(intent)
             }
-            R.id.nav_errands -> {
+            /*R.id.nav_errands -> {
                 Toast.makeText(activity, getString(R.string.not_available_yet), Toast.LENGTH_SHORT).show()
-            }
+            }*/
             R.id.nav_my_donations -> {
-                Toast.makeText(activity, getString(R.string.not_available_yet), Toast.LENGTH_SHORT).show()
+                val intent = Intent(activity, UserErrandsActivity::class.java)
+                intent.putExtra("OrderType", OrderType.GIVE)
+                startActivity(intent)
             }
             R.id.nav_update -> {
                 val intent = Intent(activity, ProfileActivity::class.java)
@@ -202,33 +200,6 @@ open class HomeFragment : Fragment(), Injectable, NavigationView.OnNavigationIte
         return true
     }
 
-    /*
-    * Fused location provider is used here to get the current/last known location
-    * Use places api to get more accurate latlong
-    * */
-    private fun getLastKnownLocation() {
-        if(checkPermission(Manifest.permission.ACCESS_FINE_LOCATION)){
-            fusedLocationClient.lastLocation.addOnSuccessListener {
-                it?.let {
-                    query = it.latitude.toString() + "," + it.longitude.toString()
-                    //viewModel.getOrders(query)
-                }?:run{
-                    Toast.makeText(activity, getString(R.string.unable_to_get_current_location), Toast.LENGTH_LONG).show()
-                }
-
-            }
-        }
-    }
-
-    private fun checkPermission(permission: String): Boolean {
-        val hasPermission = ContextCompat.checkSelfPermission(activity!!, permission) == PackageManager.PERMISSION_GRANTED
-        if (!hasPermission) {
-            ActivityCompat.requestPermissions(activity!!, arrayOf(permission), 0)
-        }
-        return hasPermission
-    }
-
-
     private fun setViewModel(){
         viewModel =  ViewModelProviders.of(this, viewModelFactory)
                 .get(OrdersViewModelImpl::class.java)
@@ -236,24 +207,5 @@ open class HomeFragment : Fragment(), Injectable, NavigationView.OnNavigationIte
 
     private fun showSearchOrdersFailed(@StringRes errorString: Int) {
         Toast.makeText(context, errorString, Toast.LENGTH_SHORT).show()
-    }
-
-    // Adds animals to the empty animals ArrayList
-    private fun addOrders() {
-        orders.add(Order( 1, "Necesito mascarillas", "", "", null))
-        orders.add(Order(1, "Quiero donar guantes", "", "", null))
-        orders.add(Order(1, "Paco quiere donar guantes a Manuel", "","", null))
-        orders.add(Order( 1, "Necesito alguien con quien conversar","","", null))
-        orders.add(Order( 1, "Quiero donar un reloj", "", "", null))
-        orders.add(Order(1, "Roger quiere donar un carrito de bebé a David", "", "", null))
-        orders.add(Order(1, "Necesito huevos", "","", null))
-        orders.add(Order( 1, "Quiero donar comida", "","", null))
-        orders.add(Order( 1, "Mónica quiere donar una chaqueta a Oscar", "","", null))
-        orders.add(Order( 1, "Mireia quiere donar huevos a Ernesto", "","", null))
-        orders.add(Order( 1, "Necesito un taladro", "","", null))
-        orders.add(Order( 1, "Necesito un móvil", "","", null))
-        orders.add(Order( 1, "Quiero donar unas zapatillas", "","", null))
-        orders.add(Order( 1, "Juan quiere donar una raqueta a Lucas", "","", null))
-        orders.add(Order( 1, "Quiero donar un iphone", "","", null))
     }
 }

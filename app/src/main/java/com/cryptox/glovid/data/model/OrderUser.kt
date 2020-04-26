@@ -6,5 +6,8 @@ package com.cryptox.glovid.data.model
 data class OrderUser (
     val id: String,
     val email: String,
-    val name: String
+    val name: String,
+    val latitude: Double,
+    val longitude: Double,
+    val phoneNumber: String
 )

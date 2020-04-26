@@ -7,7 +7,8 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
-  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
@@ -70,9 +71,12 @@
         android:label="@string/new_ask_name"/>
 
     <activity
-        android:name=".ui.errand.ErrandCategoryActivity"
+        android:name=".ui.category.CategoryActivity"
         android:label="@string/errand_category_name"/>
 
+    <activity
+        android:name=".ui.category.SubcategoryActivity"
+        android:label="@string/errand_subcategory_name"/>
 
     <activity
         android:name=".ui.errand.ErrandCreatedActivity"
@@ -85,6 +89,10 @@
     <activity
         android:name=".ui.errand.ErrandAcceptedActivity"
         android:label="@string/app_name"/>
+
+    <activity
+        android:name=".ui.errand.UserErrandsActivity"
+        android:label="@string/my_asks"/>
 
     <activity
         android:name=".ui.donation.NewDonationActivity"

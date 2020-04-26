@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:background="@drawable/food">
+            android:background="@drawable/home_background">
 
             <RelativeLayout
                 android:layout_width="0dp"
@@ -78,7 +78,7 @@
                             android:layout_height="40dp"
                             android:layout_centerInParent="true"
                             android:scaleType="fitCenter"
-                            android:src="@drawable/ringbell" />
+                            android:src="@drawable/ask" />
                     </RelativeLayout>
 
                     <TextView

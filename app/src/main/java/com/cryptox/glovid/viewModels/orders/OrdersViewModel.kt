@@ -25,8 +25,8 @@ interface OrdersViewModel {
     fun getError():LiveData<ResourceError>
     fun createOrder():LiveData<Order>
     fun callCreateOrderAPI(detail: String, type: String)
-    fun getUserOrders():LiveData<List<Order>>
-    fun callGetUserOrdersAPI(query:String)
+    fun getUserOrders(orderType: OrderType):LiveData<List<Order>>
+    fun callGetUserOrdersAPI()
     fun searchOrders():LiveData<List<Order>>
     fun callSearchOrdersAPI(orderTypeList: List<OrderType>, orderStatusList: List<OrderStatus>)
     fun getUserOrderById():LiveData<Order>

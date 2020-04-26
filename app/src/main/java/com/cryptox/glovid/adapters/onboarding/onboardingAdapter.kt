@@ -31,7 +31,7 @@ class OnboardingAdapter(private val mContext: Context) : PagerAdapter() {
 }
 
 enum class Model private constructor(val iconResId: Int, val titleResId: Int, val layoutResId: Int) {
-    ASK(R.drawable.ringbell_white, R.string.home_ask, R.layout.layout_onboarding_1),
+    ASK(R.drawable.ask_white, R.string.home_ask, R.layout.layout_onboarding_1),
     ERRAND(R.drawable.errand_white, R.string.home_errand, R.layout.layout_onboarding_2),
     DONATE(R.drawable.donate_white, R.string.home_donate, R.layout.layout_onboarding_3)
 }

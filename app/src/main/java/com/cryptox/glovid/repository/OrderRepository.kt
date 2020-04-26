@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.cryptox.glovid.data.model.Order
 import com.cryptox.glovid.data.responseModel.OrdersResponse
 import com.cryptox.glovid.network.api.Resource
+import com.cryptox.glovid.viewModels.orders.OrderType
 
 interface OrderRepository {
 

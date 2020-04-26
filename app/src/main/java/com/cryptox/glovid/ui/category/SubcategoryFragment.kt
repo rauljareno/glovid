@@ -1,32 +1,27 @@
-package com.cryptox.glovid.ui.errand
+package com.cryptox.glovid.ui.category
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.GridView
-import android.widget.Toast
-import androidx.annotation.StringRes
-import androidx.annotation.VisibleForTesting
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.cryptox.glovid.R
-import com.cryptox.glovid.adapters.home.ErrandCategoryAdapter
+import com.cryptox.glovid.adapters.category.SubcategoryAdapter
+import com.cryptox.glovid.data.model.CategoryEnum
 import com.cryptox.glovid.databinding.FragmentErrandCategoryBinding
-import com.cryptox.glovid.databinding.FragmentNewErrandBinding
 import com.cryptox.glovid.di.Injectable
+import com.cryptox.glovid.viewModels.orders.OrderType
 import kotlinx.android.synthetic.main.fragment_errand_category.*
-import kotlinx.android.synthetic.main.fragment_signup.loading
-import javax.inject.Inject
 
 
-open class ErrandCategoryFragment : Fragment(), Injectable {
+open class SubcategoryFragment(orderType: OrderType, categoryEnum: CategoryEnum) : Fragment(), Injectable {
 
-    private val TAG = ErrandCategoryFragment::class.java.simpleName
+    private val category = categoryEnum
+    private val orderType = orderType
+
+    private val TAG = SubcategoryFragment::class.java.simpleName
 
     lateinit var dataBinding: FragmentErrandCategoryBinding
 
@@ -41,7 +36,7 @@ open class ErrandCategoryFragment : Fragment(), Injectable {
         dataBinding.lifecycleOwner = this
 
         // Get an instance of base adapter
-        val adapter = ErrandCategoryAdapter()
+        val adapter = SubcategoryAdapter(orderType, category)
 
         // Set the grid view adapter
         grid_view.adapter = adapter
@@ -51,17 +46,5 @@ open class ErrandCategoryFragment : Fragment(), Injectable {
         grid_view.horizontalSpacing = 15
         grid_view.verticalSpacing = 15
         grid_view.stretchMode = GridView.STRETCH_COLUMN_WIDTH
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        //setLoadingAnimation()
-        //setRecycler()
-        //observeResponse()
-        //setListener()
-    }
-
-    private fun showNewErrandFailed(@StringRes errorString: Int) {
-        Toast.makeText(context, errorString, Toast.LENGTH_SHORT).show()
     }
 }

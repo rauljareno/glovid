@@ -38,14 +38,19 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_signup.*
+import kotlinx.android.synthetic.main.fragment_signup.loading
+import kotlinx.android.synthetic.main.fragment_signup.password
 import java.io.IOException
 import java.util.*
 import javax.inject.Inject
 import kotlin.collections.ArrayList
 
 
-open class SignUpFragment : Fragment(), Injectable, OnMapReadyCallback {
+open class SignUpFragment(location: Location?) : Fragment(), Injectable, OnMapReadyCallback {
+
+    private val location = location
 
     private val TAG = SignUpFragment::class.java.simpleName
 
@@ -250,7 +255,7 @@ open class SignUpFragment : Fragment(), Injectable, OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap?) {
         mMap = googleMap
-        val barcelona = LatLng(41.385, 2.173)
+        val coordinate = LatLng(location!!.latitude, location.longitude)
         googleMap?.uiSettings?.isMapToolbarEnabled = false
         googleMap?.setOnMapClickListener{ point -> //save current location
             var addresses: List<Address?> = ArrayList()
@@ -293,8 +298,48 @@ open class SignUpFragment : Fragment(), Injectable, OnMapReadyCallback {
                 )
             }
         }
+
+        var addresses: List<Address?> = ArrayList()
+        try {
+            addresses = geocoder.getFromLocation(coordinate.latitude, coordinate.longitude, 1)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        if (addresses.isNotEmpty()) {
+            val address = addresses[0]
+            if (address != null) {
+                val sb = StringBuilder()
+                for (i in 0 until address.maxAddressLineIndex + 1) {
+                    sb.append(
+                        address.getAddressLine(i).trimIndent()
+                    )
+                }
+                addressEt.setText(sb.toString())
+                latLng = coordinate
+                countryCode = address.countryCode
+                postalCode = address.postalCode
+                //Toast.makeText(this@MapsActivity, sb.toString(), Toast.LENGTH_LONG).show()
+            }
+            //remove previously placed Marker
+            if (marker != null) {
+                marker?.remove()
+            }
+
+            //place marker where user just clicked
+            marker = googleMap?.addMarker(
+                MarkerOptions().position(coordinate)
+                    .icon(
+                        BitmapDescriptorFactory.fromBitmap(
+                            ImageUtils.getBitmapFromVectorDrawable(
+                                activity!!.applicationContext,
+                                R.drawable.location
+                            )
+                        )
+                    )
+            )
+        }
         //Move the camera to the user's location and zoom in!
-        googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(barcelona, 18.0f))
+        googleMap?.moveCamera(CameraUpdateFactory.newLatLngZoom(coordinate, 18.0f))
     }
 
 

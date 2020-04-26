@@ -3,6 +3,8 @@ package com.cryptox.glovid.ui.errand
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.cryptox.glovid.data.model.CategoryEnum
+import com.cryptox.glovid.data.model.SubcategoryEnum
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
@@ -14,7 +16,9 @@ class NewErrandActivity : AppCompatActivity() , HasSupportFragmentInjector {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setFragment(NewErrandFragment())
+        val category = intent.getSerializableExtra("Category") as CategoryEnum?
+        val subcategory = intent.getSerializableExtra("Subcategory") as SubcategoryEnum?
+        setFragment(NewErrandFragment(category, subcategory))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 

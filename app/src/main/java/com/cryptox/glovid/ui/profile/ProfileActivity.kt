@@ -1,31 +1,40 @@
 package com.cryptox.glovid.ui.profile
 
-import android.content.Context
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.os.Build
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.DrawableCompat
-import com.cryptox.glovid.R
-import com.cryptox.glovid.prefs
-import com.cryptox.glovid.utils.ImageUtils
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.CircleOptions
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import androidx.fragment.app.Fragment
+import com.cryptox.glovid.ui.login.LoginFragment
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.HasSupportFragmentInjector
+import javax.inject.Inject
+
+class ProfileActivity : AppCompatActivity() , HasSupportFragmentInjector {
+
+    @Inject
+    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setFragment(ProfileFragment())
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun setFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .add(android.R.id.content, fragment)
+            .commit()
+    }
+
+    override fun supportFragmentInjector() = dispatchingAndroidInjector
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+}
 
 
-class ProfileActivity : AppCompatActivity(), OnMapReadyCallback {
+/*class ProfileActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,4 +85,4 @@ class ProfileActivity : AppCompatActivity(), OnMapReadyCallback {
 
         //googleMap?.moveCamera(CameraUpdateFactory.newLatLng(barcelona))
     }
-}
+}*/

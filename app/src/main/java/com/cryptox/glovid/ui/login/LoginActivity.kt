@@ -35,5 +35,4 @@ class LoginActivity : AppCompatActivity() , HasSupportFragmentInjector {
         finish()
         return true
     }
-
 }
